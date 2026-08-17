@@ -6,14 +6,8 @@
 - [Protocol](#protocol)
 - [Clients](#clients)
 - [Interfaces — Many UIs Around Files](#interfaces--many-uis-around-files)
-  - [Video & Film](#video--film)
-  - [Audio](#audio)
-  - [Images & Photography](#images--photography)
-  - [Documents & Publishing](#documents--publishing)
-  - [Datasets & Research](#datasets--research)
-  - [Code & Models](#code--models)
-  - [3D & Spatial](#3d--spatial)
-  - [Archives & Collections](#archives--collections)
+  - [Built — Exists Today](#built--exists-today)
+  - [Proposed — To Build](#proposed--to-build)
 - [Concepts](#concepts)
 - [Planet Visualization](#planet-visualization)
 
@@ -31,53 +25,51 @@ Reference thin clients obeying the same file-CID rule set:
 - [foc-local-first-android](https://github.com/Haven-hvn/foc-local-first-android) - Kotlin/Android 3-path retrieval (direct SP `/piece`, FilBeam CDN, IPFS) hedged race, LRU/TTL.
 
 ## Interfaces — Many UIs Around Files
-Same `ipfs_cid`/`piece_cid` via Filecoin, `haven-aol` VetKD if `is_encrypted=1`, discovered via `arkiv_query(eq("gate_token",…))`. Each category shows **many file types, many diverse GUIs on the same CID**.
+Same `ipfs_cid`/`piece_cid` via Filecoin, `haven-aol` VetKD if `is_encrypted=1`, discovered via `arkiv_query(eq("gate_token",…))`. Each file `CID` can be rendered by many diverse GUIs — **Built vs Proposed** below.
 
-### Video & Film
-File types `mp4, mkv, mov, webm, avi, m4v, mpg` — same CID, diverse GUIs:
-- [Cinema players](https://github.com/Haven-hvn/haven-dapp#cinema) - Haven Web player, `mpv`/`vlc` wrappers and mobile Media3 player.
+### Built — Exists Today
+Verified from `Haven-hvn/haven-dapp` (Decentralized Video Library — Next.js 16, Tailwind, wagmi/viem, Haven-AOL VetKD, IPFS/Filecoin via Arkiv SDK, `video/*` encrypted) and `Haven-hvn/haven-mobile` (Kotlin Compose/Media3/Room, `foc-cache`, offline-first viewer — also `video/*` via Media3):
+- [Haven dapp — Video player](https://github.com/Haven-hvn/haven-dapp) - `mp4`/`mkv`/`mov` `video/*` — Web3 video streaming, wallet auth, VetKD decrypt, responsive + dark mode.
+- [Haven mobile — Video player](https://github.com/Haven-hvn/haven-mobile) - `mp4`/`mkv` `video/*` — Android Media3 playback, offline-first `foc-cache`, same `CID` as dapp.
+- [Haven CLI — Archival pipeline](https://github.com/Haven-hvn/haven-cli) - `mp4`/`mkv` `video/*` — `arkiv_sync.py` encrypt + pin to Filecoin (exists, video-only).
+
+*All built clients today are `video/*`-only. No built client yet for audio, images, documents, datasets, code, 3D or archives beyond video.*
+
+### Proposed — To Build
+Many file types, many diverse GUIs on the **same CID** per category — not yet built, open for contributors. Each DataDAO can ship its own GUI:
+
+**Video & Film** — `mp4, mkv, mov, webm, avi, m4v, mpg`:
 - [Timeline suite](https://github.com/Haven-hvn/docs/blob/main/architecture/02-haven-dapp.md#timeline) - Timeline viewer, chapter navigator and clip extractor.
 - [Studio tools](https://github.com/Haven-hvn/haven-cli#studio) - Thumbnail storyboarder, subtitle editor and transcoder.
 
-### Audio
-File types `mp3, flac, wav, m4a, ogg, opus, aiff, gp5, psarc` — same CID, diverse GUIs:
+**Audio** — `mp3, flac, wav, m4a, ogg, opus, aiff, gp5, psarc`:
 - [Music & podcasts](https://github.com/Haven-hvn/docs/blob/main/architecture/03-haven-cli.md#music) - Haven player, podcast app and waveform viewer.
 - [Stems & practice](https://github.com/Haven-hvn/haven-mobile#stems) - Mixer, stem splitter, practice looper and loudness analyzer.
-- [Guitar & tabs](https://github.com/Haven-hvn/foc-local-first-android#guitar) - `psarc`/`gp5` tab viewer, `psarc` extractor and stem splitter — one audio subtype among many.
+- [Guitar & tabs](https://github.com/Haven-hvn/foc-local-first-android#guitar) - `psarc`/`gp5` tab viewer, extractor and stem splitter — one audio subtype among many.
 
-### Images & Photography
-File types `jpg, png, raw, tiff, heic, webp, avif, geojson` — same CID, diverse GUIs:
-- [Photo galleries](https://github.com/Haven-hvn/haven-mobile#photo) - Gallery, lightbox and EXIF editor — offline-first via `foc-cache`.
+**Images & Photography** — `jpg, png, raw, tiff, heic, webp, avif, geojson`:
+- [Photo galleries](https://github.com/Haven-hvn/haven-mobile#photo) - Gallery, lightbox and EXIF editor — offline-first.
 - [Maps & GIS](https://github.com/Haven-hvn/docs/blob/main/architecture/04-haven-mobile.md#maps) - Map viewer, tile renderer and coordinate inspector.
-- [Darkroom](https://github.com/Haven-hvn/data-utils#darkroom) - RAW developer, panorama stitcher and color grader.
 
-### Documents & Publishing
-File types `pdf, epub, md, docx, djvu, cbz, html` — same CID, diverse GUIs:
-- [Ebook readers](https://github.com/Haven-hvn/docs#ebook) - `epub.js`/`pdf.js` viewers, Readium and `haven-cli` ebook converter — same `encrypted_cid` and epoch.
+**Documents & Publishing** — `pdf, epub, md, docx, djvu, cbz, html`:
+- [Ebook readers](https://github.com/Haven-hvn/docs#ebook) - `epub.js`/`pdf.js` viewers, Readium and `haven-cli` ebook converter.
 - [Research suite](https://github.com/Haven-hvn/docs/blob/main/entities/MEDIA_CONTENT_SPEC.md#research) - Reader, citation graph, annotation layer and text-to-speech.
 
-### Datasets & Research
-File types `csv, parquet, jsonl, hdf5, fits, tsv, arrow` — same CID, diverse GUIs:
+**Datasets & Research** — `csv, parquet, jsonl, hdf5, fits, tsv, arrow`:
 - [Open datasets](https://github.com/Haven-hvn/data-utils#datasets) - Table viewer, query console and chart builder.
 - [Science archives](https://github.com/Haven-hvn/haven-provenance) - Provenance viewer, lineage graph and attestation checker.
-- [Lab notebooks](https://github.com/Haven-hvn/haven-core#lab) - Jupyter bridge, version diff and dataset card.
 
-### Code & Models
-File types `zip, tar, safetensors, onnx, pt, wasm, gguf` — same CID, diverse GUIs:
+**Code & Models** — `zip, tar, safetensors, onnx, pt, wasm, gguf`:
 - [Model weights](https://github.com/Haven-hvn/haven-core#weights) - Model loader, inference runner and provenance card.
-- [Code bundles](https://github.com/Haven-hvn/haven-adapters) - Code viewer, diff viewer and adapter registry.
 - [WebAssembly playground](https://github.com/Haven-hvn/haven-lander#wasm) - WebAssembly runner, sandbox preview and dependency inspector.
 
-### 3D & Spatial
-File types `gltf, glb, obj, fbx, usdz, stl, psarc, pak` — same CID, diverse GUIs:
+**3D & Spatial** — `gltf, glb, obj, fbx, usdz, stl, psarc, pak`:
 - [3D assets](https://github.com/Haven-hvn/haven-lander#3d) - 3D viewer, AR preview and scene composer.
-- [Game mods](https://github.com/Haven-hvn/foc-local-first-android#mods) - Mod manager, dependency resolver and in-game overlay — `psarc` now one 3D mod type among many.
+- [Game mods](https://github.com/Haven-hvn/foc-local-first-android#mods) - Mod manager, dependency resolver and in-game overlay — `psarc` now one 3D mod type.
 
-### Archives & Collections
-File types `zip, tar, 7z, iso, bagit, json` (swarm logs) — same CID, diverse GUIs:
+**Archives & Collections** — `zip, tar, 7z, iso, bagit, json`:
 - [Time capsules](https://github.com/Haven-hvn/humanactivitygathering) - Collection browser, timeline scrubber and `btl` expiry inspector.
 - [Agent swarms](https://github.com/Haven-hvn/haven-agent) - Swarm viewer, `VetKD` decrypt and replay console.
-- [Dedup & attestation](https://github.com/Haven-hvn/haven-provenance#dedup) - Dedup viewer, attested-publisher filter and `btl` reaper.
 
 ## Concepts
 Haven L7 is `alt.binaries for DataDAOs` — a private-tracker replacement that is token-gated, sealed and permanently pinned. Files are stored as CIDs: entity headers are ephemeral (`btl`/`EXPIRE`), bodies are durable (Filecoin `PDPVerifier`).
