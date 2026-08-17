@@ -9,7 +9,6 @@
   - [Audio — Music & Guitar](#audio--music--guitar)
   - [Documents — Ebooks](#documents--ebooks)
 - [Concepts](#concepts)
-- [Contributing](#contributing)
 
 ## Protocol
 - [Haven docs](https://github.com/Haven-hvn/docs) - Living architecture, `WEB3_PARADIGM`, `ENTITY_SHAPE` (`Ident32`/`Mime128`/`btl` at `0x44…0044`), `MEDIA_CONTENT_SPEC` (`CID`-only body).
@@ -28,11 +27,11 @@ Reference thin clients obeying the same file-CID rule set:
 Same `ipfs_cid`/`piece_cid` via Filecoin, `haven-aol` VetKD if `is_encrypted=1`, discovered via `arkiv_query(eq("gate_token",…))`.
 
 ### Audio — Music & Guitar
-- [Music players](https://github.com/Haven-hvn/haven-dapp) - Generic `audio/*` (`mp3`/`flac`/`wav`) CIDs: Haven Web player, `vlc`/`mpv` wrappers and mobile Media3 player.
-- [Guitar files](https://github.com/Haven-hvn/docs) - `psarc` (Rocksmith) / `psarc guitar files`, `gp5`/`gp` tabs and stems: open-source `psarc` extractor, tab viewer/renderer, practice player and stem splitter — all parse same CID.
+- [Music players](https://github.com/Haven-hvn/docs/blob/main/architecture/02-haven-dapp.md) - Generic `audio/*` (`mp3`/`flac`/`wav`) CIDs: Haven Web player, `vlc`/`mpv` wrappers and mobile Media3 player.
+- [Guitar files](https://github.com/Haven-hvn/docs/blob/main/architecture/03-haven-cli.md) - `psarc` (Rocksmith) / `psarc guitar files`, `gp5`/`gp` tabs and stems: open-source `psarc` extractor, tab viewer/renderer, practice player and stem splitter — all parse same CID.
 
 ### Documents — Ebooks
-- [Ebook readers](https://github.com/Haven-hvn/docs) - `epub`/`pdf` CIDs per DataDAO zone: `epub.js`/`pdf.js` viewers, Readium and `haven-cli` ebook converter — same `encrypted_cid` and epoch.
+- [Ebook readers](https://github.com/Haven-hvn/docs/blob/main/architecture/04-haven-mobile.md) - `epub`/`pdf` CIDs per DataDAO zone: `epub.js`/`pdf.js` viewers, Readium and `haven-cli` ebook converter — same `encrypted_cid` and epoch.
 
 ## Concepts
 Haven L7 is `alt.binaries for DataDAOs` — a private-tracker replacement that is token-gated, sealed and permanently pinned. Files are stored as CIDs: entity headers are ephemeral (`btl`/`EXPIRE`), bodies are durable (Filecoin `PDPVerifier`).
