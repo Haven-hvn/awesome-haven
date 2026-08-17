@@ -9,6 +9,7 @@
   - [Audio — Music & Guitar](#audio--music--guitar)
   - [Documents — Ebooks](#documents--ebooks)
 - [Concepts](#concepts)
+- [Planet Visualization](#planet-visualization)
 
 ## Protocol
 - [Haven docs](https://github.com/Haven-hvn/docs) - Living architecture, `WEB3_PARADIGM`, `ENTITY_SHAPE` (`Ident32`/`Mime128`/`btl` at `0x44…0044`), `MEDIA_CONTENT_SPEC` (`CID`-only body).
