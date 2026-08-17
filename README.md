@@ -29,9 +29,9 @@ Same `ipfs_cid`/`piece_cid` via Filecoin, `haven-aol` VetKD if `is_encrypted=1`,
 
 ### Built — Exists Today
 Verified from `Haven-hvn/haven-dapp` (Decentralized Video Library — Next.js 16, Tailwind, wagmi/viem, Haven-AOL VetKD, IPFS/Filecoin via Arkiv SDK, `video/*` encrypted) and `Haven-hvn/haven-mobile` (Kotlin Compose/Media3/Room, `foc-cache`, offline-first viewer — also `video/*` via Media3):
-- [Haven dapp — Video player](https://github.com/Haven-hvn/haven-dapp) - `mp4`/`mkv`/`mov` `video/*` — Web3 video streaming, wallet auth, VetKD decrypt, responsive + dark mode.
-- [Haven mobile — Video player](https://github.com/Haven-hvn/haven-mobile) - `mp4`/`mkv` `video/*` — Android Media3 playback, offline-first `foc-cache`, same `CID` as dapp.
-- [Haven CLI — Archival pipeline](https://github.com/Haven-hvn/haven-cli) - `mp4`/`mkv` `video/*` — `arkiv_sync.py` encrypt + pin to Filecoin (exists, video-only).
+- [Haven dapp — Video player](https://github.com/Haven-hvn/haven-dapp#video) - `mp4`/`mkv`/`mov` `video/*` — Web3 video streaming, wallet auth, VetKD decrypt, responsive + dark mode.
+- [Haven mobile — Video player](https://github.com/Haven-hvn/haven-mobile#video) - `mp4`/`mkv` `video/*` — Android Media3 playback, offline-first `foc-cache`, same `CID` as dapp.
+- [Haven CLI — Archival pipeline](https://github.com/Haven-hvn/haven-cli#archival) - `mp4`/`mkv` `video/*` — `arkiv_sync.py` encrypt + pin to Filecoin (exists, video-only).
 
 *All built clients today are `video/*`-only. No built client yet for audio, images, documents, datasets, code, 3D or archives beyond video.*
 
