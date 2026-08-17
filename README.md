@@ -1,6 +1,6 @@
 # Awesome Haven [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
 
-> Curated directory for **Haven — L7 sovereign media protocol** (BTP/GTP — Bulletin/Gossip Transfer Protocol). Files as CIDs: Arkiv OP L3 (`0x44…0044` ephemeral entities, `btl`/`regex` via `roaring64/ART`) + ICP VetKD (`haven-aol` `dciac-…qlzuq`, `gate_token/gate_chain/gate_threshold` per `cid/epoch`) + Filecoin Onchain Cloud (IPFS `CID` only in Arkiv). Many UIs around the same file pointer — no private backend (`Datastores:0`).
+> Curated directory for **Haven — L7 sovereign media protocol**. Files as CIDs: Arkiv OP L3 (`0x44…0044` ephemeral entities, `btl`/`regex` via `roaring64/ART`) + ICP VetKD (`haven-aol` `dciac-…qlzuq`, `gate_token/gate_chain/gate_threshold` per `cid/epoch`) + Filecoin Onchain Cloud (IPFS `CID` only in Arkiv). Many UIs around the same file pointer — no private backend (`Datastores:0`).
 
 ## Contents
 - [Protocol](#protocol)
@@ -35,7 +35,7 @@ Same `ipfs_cid`/`piece_cid` via Filecoin, `haven-aol` VetKD if `is_encrypted=1`,
 - [Ebook readers](https://github.com/Haven-hvn/docs) - `epub`/`pdf` CIDs per DataDAO zone: `epub.js`/`pdf.js` viewers, Readium and `haven-cli` ebook converter — same `encrypted_cid` and epoch.
 
 ## Concepts
-Haven L7 is `alt.binaries for DataDAOs` — a private-tracker replacement that is token-gated, sealed and permanently pinned. It implements `GTP/BTP — Gossip/Bulletin Transfer Protocol` (`headers + CID + btl` gossip, body on Filecoin) as `Distributed Bulletin Transfer Protocol (DBTP)` — timeless and p2p. Files are stored as CIDs: entity headers are ephemeral (`btl`/`EXPIRE`), bodies are durable (Filecoin `PDPVerifier`).
+Haven L7 is `alt.binaries for DataDAOs` — a private-tracker replacement that is token-gated, sealed and permanently pinned. Files are stored as CIDs: entity headers are ephemeral (`btl`/`EXPIRE`), bodies are durable (Filecoin `PDPVerifier`).
 
 ## Contributing
 PRs welcome! Each DataDAO may ship its own GUI around the same file protocol. See `awesome.md` and `interfaces/README.md`. Please follow [awesome guidelines](https://github.com/sindresorhus/awesome/blob/main/pull_request_template.md).
