@@ -38,3 +38,6 @@ Haven L7 is `alt.binaries for DataDAOs` — a private-tracker replacement that i
 
 ## Contributing
 PRs welcome! Each DataDAO may ship its own GUI around the same file protocol. See `awesome.md` and `interfaces/README.md`. Please follow [awesome guidelines](https://github.com/sindresorhus/awesome/blob/main/pull_request_template.md).
+
+## Planet Visualization
+Interactive orbit view of composable permissionless networks: [planet/index.html](planet/index.html) — Haven L7 at center, Arkiv L3, ICP VetKD, EVM, Filecoin as orbits, many UIs around one file CID. No private backend — only CIDs + eth_call + ecrecover.

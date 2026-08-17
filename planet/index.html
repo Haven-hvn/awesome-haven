@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Haven — Composable Permissionless Networks</title>
+<style>
+  html,body{margin:0;height:100%;background:#0a0e14;color:#e6e8eb;font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;overflow:hidden}
+  #c{width:100%;height:100%;display:block}
+  .hud{position:fixed;top:20px;left:20px;max-width:440px;background:#11151c;border:1px solid #252a33;padding:18px 20px}
+  .hud h1{font-family:ui-serif,Georgia,serif;font-size:18px;font-weight:700;margin:0 0 8px 0;letter-spacing:-0.01em;color:#f2f3f5}
+  .hud p{font-size:13px;line-height:1.6;margin:0;color:#a3abb6}
+  .hud .legend{margin-top:14px;display:flex;flex-wrap:wrap;gap:8px}
+  .legend span{display:inline-flex;align-items:center;gap:7px;font-size:11px;letter-spacing:0.02em;text-transform:uppercase;color:#c9ced6;border:1px solid #2a2e35;padding:5px 9px;background:#0f131a}
+  .dot{width:8px;height:8px;border-radius:50%}
+  .hint{position:fixed;bottom:16px;left:20px;font-size:11px;color:#7a828e;letter-spacing:0.02em}
+  code{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;font-size:12px;background:#1a1f29;padding:1px 4px}
+</style>
+</head>
+<body>
+<canvas id="c"></canvas>
+<div class="hud">
+  <h1>Haven L7 — Planet Visualization</h1>
+  <p>Composable, open, permissionless networks. Each orbit is a public network with no private backend. <b>Haven</b> (L7) composes them into one rule: <code>headers + CID</code> in Arkiv, body on Filecoin, gate via any EVM, keys via VetKD. Many UIs orbit the same file CID.</p>
+  <div class="legend">
+    <span><i class="dot" style="background:#ff6b35"></i> Arkiv L3 0x44…0044</span>
+    <span><i class="dot" style="background:#e67e22"></i> ICP VetKD dciac-…qlzuq</span>
+    <span><i class="dot" style="background:#2ecc71"></i> EVM (any)</span>
+    <span><i class="dot" style="background:#3498db"></i> Filecoin IPFS</span>
+    <span><i class="dot" style="background:#f1c40f"></i> Haven L7</span>
+  </div>
+</div>
+<div class="hint">drag to rotate · scroll to zoom · composability = no shared DB, only CIDs + eth_call + ecrecover</div>
+<script type="module">
+const canvas = document.getElementById('c');
+const ctx = canvas.getContext('2d');
+let W, H, dpr;
+function resize(){ dpr = Math.min(2, window.devicePixelRatio||1); W = canvas.width = innerWidth*dpr; H = canvas.height = innerHeight*dpr; canvas.style.width = innerWidth+'px'; canvas.style.height = innerHeight+'px'; }
+resize(); addEventListener('resize', resize);
+const networks = [
+  {name:'Arkiv L3', color:'#ff6b35', r: 13, orbit: 110, speed: 0.008, angle: 0.1, desc:'Ephemeral entities · btl/regex · 0x44…0044'},
+  {name:'ICP VetKD', color:'#e67e22', r: 11, orbit: 175, speed: 0.005, angle: 1.9, desc:'haven-aol · token-gated VetKD per cid/epoch'},
+  {name:'EVM', color:'#2ecc71', r: 11, orbit: 235, speed: 0.0035, angle: 3.0, desc:'Any EVM as gate · balanceOf via eth_call'},
+  {name:'Filecoin', color:'#3498db', r: 15, orbit: 305, speed: 0.0022, angle: 4.6, desc:'IPFS body · piece_cid · 3-path hedged race'},
+];
+const haven = {name:'Haven L7', color:'#f1c40f', r: 9};
+let rotX = -0.25, rotY = 0.4, scale = 1;
+let dragging=false, lastX=0, lastY=0;
+canvas.addEventListener('mousedown', e=>{dragging=true; lastX=e.clientX; lastY=e.clientY});
+addEventListener('mouseup', ()=>dragging=false);
+addEventListener('mousemove', e=>{
+  if(!dragging) return;
+  rotY += (e.clientX-lastX)*0.005;
+  rotX += (e.clientY-lastY)*0.005;
+  rotX = Math.max(-1.2, Math.min(1.2, rotX));
+  lastX=e.clientX; lastY=e.clientY;
+});
+canvas.addEventListener('wheel', e=>{
+  e.preventDefault();
+  scale *= e.deltaY < 0 ? 1.08 : 0.92;
+  scale = Math.max(0.6, Math.min(2.2, scale));
+},{passive:false});
+canvas.addEventListener('touchstart', e=>{dragging=true; lastX=e.touches[0].clientX; lastY=e.touches[0].clientY},{passive:false});
+addEventListener('touchend', ()=>dragging=false);
+addEventListener('touchmove', e=>{
+  if(!dragging) return;
+  rotY += (e.touches[0].clientX-lastX)*0.005;
+  rotX += (e.touches[0].clientY-lastY)*0.005;
+  lastX=e.touches[0].clientX; lastY=e.touches[0].clientY;
+},{passive:false});
+function project(x,y,z){
+  const cosY=Math.cos(rotY), sinY=Math.sin(rotY), cosX=Math.cos(rotX), sinX=Math.sin(rotX);
+  let x1 = x*cosY - z*sinY;
+  let z1 = x*sinY + z*cosY;
+  let y1 = y*cosX - z1*sinX;
+  let z2 = y*sinX + z1*cosX;
+  const fov = 420*scale;
+  const s = fov / (fov + z2 + 400);
+  return {x: W/2 + x1*s, y: H/2 + y1*s, s, z:z2};
+}
+function draw(){
+  ctx.clearRect(0,0,W,H);
+  ctx.fillStyle='#0a0e14'; ctx.fillRect(0,0,W,H);
+  ctx.fillStyle='rgba(255,255,255,0.45)';
+  for(let i=0;i<100;i++){
+    const x=(i*137.7)%W, y=(i*57.3)%H;
+    ctx.fillRect(x, y, 0.6*dpr, 0.6*dpr);
+  }
+  ctx.strokeStyle='rgba(255,255,255,0.06)'; ctx.lineWidth=1*dpr;
+  for(const n of networks){
+    ctx.beginPath();
+    for(let a=0;a<Math.PI*2;a+=0.06){
+      const x=Math.cos(a)*n.orbit, z=Math.sin(a)*n.orbit;
+      const p=project(x,0,z);
+      if(a===0) ctx.moveTo(p.x,p.y); else ctx.lineTo(p.x,p.y);
+    }
+    ctx.stroke();
+  }
+  const center = project(0,0,0);
+  const g = ctx.createRadialGradient(center.x, center.y, 0, center.x, center.y, 26*dpr*center.s);
+  g.addColorStop(0,'rgba(241,196,15,0.35)'); g.addColorStop(1,'rgba(241,196,15,0)');
+  ctx.fillStyle=g; ctx.beginPath(); ctx.arc(center.x, center.y, 26*dpr*center.s,0,Math.PI*2); ctx.fill();
+  ctx.fillStyle=haven.color; ctx.beginPath(); ctx.arc(center.x, center.y, haven.r*dpr*center.s,0,Math.PI*2); ctx.fill();
+  ctx.fillStyle='#f1c40f'; ctx.font=`700 ${11*dpr*center.s}px ui-serif,Georgia,serif`; ctx.textAlign='center'; ctx.fillText('Haven L7', center.x, center.y - 18*dpr*center.s);
+  ctx.fillStyle='rgba(255,255,255,0.5)'; ctx.font=`${9*dpr*center.s}px ui-monospace,monospace`; ctx.fillText('headers + CID', center.x, center.y + 14*dpr*center.s);
+  for(const n of networks){
+    n.angle += n.speed;
+    const x=Math.cos(n.angle)*n.orbit, z=Math.sin(n.angle)*n.orbit;
+    const p=project(x,0,z);
+    ctx.strokeStyle=n.color+'44'; ctx.lineWidth=1*dpr; ctx.beginPath(); ctx.moveTo(center.x,center.y); ctx.lineTo(p.x,p.y); ctx.stroke();
+    const pg=ctx.createRadialGradient(p.x,p.y,0,p.x,p.y,16*dpr*p.s);
+    pg.addColorStop(0,n.color+'55'); pg.addColorStop(1,n.color+'00');
+    ctx.fillStyle=pg; ctx.beginPath(); ctx.arc(p.x,p.y,16*dpr*p.s,0,Math.PI*2); ctx.fill();
+    ctx.fillStyle=n.color; ctx.beginPath(); ctx.arc(p.x,p.y,n.r*dpr*p.s,0,Math.PI*2); ctx.fill();
+    ctx.fillStyle='#e6e8eb'; ctx.font=`600 ${11*dpr*p.s}px ui-sans-serif,system-ui`; ctx.textAlign='center'; ctx.fillText(n.name, p.x, p.y - 15*dpr*p.s);
+    ctx.fillStyle='#8a919c'; ctx.font=`${8*dpr*p.s}px ui-monospace,monospace`; ctx.fillText(n.desc, p.x, p.y + 15*dpr*p.s);
+  }
+  requestAnimationFrame(draw);
+}
+requestAnimationFrame(draw);
+</script>
+</body>
+</html>
