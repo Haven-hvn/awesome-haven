@@ -35,49 +35,49 @@ Same `ipfs_cid`/`piece_cid` via Filecoin, `haven-aol` VetKD if `is_encrypted=1`,
 
 ### Video & Film
 File types `mp4, mkv, mov, webm, avi, m4v, mpg` — same CID, diverse GUIs:
-- [Cinema players](https://github.com/Haven-hvn/haven-dapp) - Haven Web player, `mpv`/`vlc` wrappers and mobile Media3 player.
-- [Timeline suite](https://github.com/Haven-hvn/docs/blob/main/architecture/02-haven-dapp.md) - Timeline viewer, chapter navigator and clip extractor.
-- [Studio tools](https://github.com/Haven-hvn/haven-cli) - Thumbnail storyboarder, subtitle editor and transcoder.
+- [Cinema players](https://github.com/Haven-hvn/haven-dapp#cinema) - Haven Web player, `mpv`/`vlc` wrappers and mobile Media3 player.
+- [Timeline suite](https://github.com/Haven-hvn/docs/blob/main/architecture/02-haven-dapp.md#timeline) - Timeline viewer, chapter navigator and clip extractor.
+- [Studio tools](https://github.com/Haven-hvn/haven-cli#studio) - Thumbnail storyboarder, subtitle editor and transcoder.
 
 ### Audio
 File types `mp3, flac, wav, m4a, ogg, opus, aiff, gp5, psarc` — same CID, diverse GUIs:
-- [Music & podcasts](https://github.com/Haven-hvn/docs/blob/main/architecture/03-haven-cli.md) - Haven player, podcast app and waveform viewer.
-- [Stems & practice](https://github.com/Haven-hvn/haven-mobile) - Mixer, stem splitter, practice looper and loudness analyzer.
-- [Guitar & tabs](https://github.com/Haven-hvn/foc-local-first-android) - `psarc`/`gp5` tab viewer, `psarc` extractor and stem splitter — one audio subtype among many.
+- [Music & podcasts](https://github.com/Haven-hvn/docs/blob/main/architecture/03-haven-cli.md#music) - Haven player, podcast app and waveform viewer.
+- [Stems & practice](https://github.com/Haven-hvn/haven-mobile#stems) - Mixer, stem splitter, practice looper and loudness analyzer.
+- [Guitar & tabs](https://github.com/Haven-hvn/foc-local-first-android#guitar) - `psarc`/`gp5` tab viewer, `psarc` extractor and stem splitter — one audio subtype among many.
 
 ### Images & Photography
 File types `jpg, png, raw, tiff, heic, webp, avif, geojson` — same CID, diverse GUIs:
-- [Photo galleries](https://github.com/Haven-hvn/haven-mobile) - Gallery, lightbox and EXIF editor — offline-first via `foc-cache`.
-- [Maps & GIS](https://github.com/Haven-hvn/docs/blob/main/architecture/04-haven-mobile.md) - Map viewer, tile renderer and coordinate inspector.
-- [Darkroom](https://github.com/Haven-hvn/data-utils) - RAW developer, panorama stitcher and color grader.
+- [Photo galleries](https://github.com/Haven-hvn/haven-mobile#photo) - Gallery, lightbox and EXIF editor — offline-first via `foc-cache`.
+- [Maps & GIS](https://github.com/Haven-hvn/docs/blob/main/architecture/04-haven-mobile.md#maps) - Map viewer, tile renderer and coordinate inspector.
+- [Darkroom](https://github.com/Haven-hvn/data-utils#darkroom) - RAW developer, panorama stitcher and color grader.
 
 ### Documents & Publishing
 File types `pdf, epub, md, docx, djvu, cbz, html` — same CID, diverse GUIs:
-- [Ebook readers](https://github.com/Haven-hvn/docs) - `epub.js`/`pdf.js` viewers, Readium and `haven-cli` ebook converter — same `encrypted_cid` and epoch.
-- [Research suite](https://github.com/Haven-hvn/docs/blob/main/entities/MEDIA_CONTENT_SPEC.md) - Reader, citation graph, annotation layer and text-to-speech.
+- [Ebook readers](https://github.com/Haven-hvn/docs#ebook) - `epub.js`/`pdf.js` viewers, Readium and `haven-cli` ebook converter — same `encrypted_cid` and epoch.
+- [Research suite](https://github.com/Haven-hvn/docs/blob/main/entities/MEDIA_CONTENT_SPEC.md#research) - Reader, citation graph, annotation layer and text-to-speech.
 
 ### Datasets & Research
 File types `csv, parquet, jsonl, hdf5, fits, tsv, arrow` — same CID, diverse GUIs:
-- [Open datasets](https://github.com/Haven-hvn/data-utils) - Table viewer, query console and chart builder.
+- [Open datasets](https://github.com/Haven-hvn/data-utils#datasets) - Table viewer, query console and chart builder.
 - [Science archives](https://github.com/Haven-hvn/haven-provenance) - Provenance viewer, lineage graph and attestation checker.
-- [Lab notebooks](https://github.com/Haven-hvn/haven-core) - Jupyter bridge, version diff and dataset card.
+- [Lab notebooks](https://github.com/Haven-hvn/haven-core#lab) - Jupyter bridge, version diff and dataset card.
 
 ### Code & Models
 File types `zip, tar, safetensors, onnx, pt, wasm, gguf` — same CID, diverse GUIs:
-- [Model weights](https://github.com/Haven-hvn/haven-core) - Model loader, inference runner and provenance card.
+- [Model weights](https://github.com/Haven-hvn/haven-core#weights) - Model loader, inference runner and provenance card.
 - [Code bundles](https://github.com/Haven-hvn/haven-adapters) - Code viewer, diff viewer and adapter registry.
-- [WASM playground](https://github.com/Haven-hvn/haven-lander) - WASM runner, sandbox preview and dependency inspector.
+- [WebAssembly playground](https://github.com/Haven-hvn/haven-lander#wasm) - WebAssembly runner, sandbox preview and dependency inspector.
 
 ### 3D & Spatial
 File types `gltf, glb, obj, fbx, usdz, stl, psarc, pak` — same CID, diverse GUIs:
-- [3D assets](https://github.com/Haven-hvn/haven-lander) - 3D viewer, AR preview and scene composer.
-- [Game mods](https://github.com/Haven-hvn/foc-local-first-android) - Mod manager, dependency resolver and in-game overlay — `psarc` now one 3D mod type among many.
+- [3D assets](https://github.com/Haven-hvn/haven-lander#3d) - 3D viewer, AR preview and scene composer.
+- [Game mods](https://github.com/Haven-hvn/foc-local-first-android#mods) - Mod manager, dependency resolver and in-game overlay — `psarc` now one 3D mod type among many.
 
 ### Archives & Collections
 File types `zip, tar, 7z, iso, bagit, json` (swarm logs) — same CID, diverse GUIs:
 - [Time capsules](https://github.com/Haven-hvn/humanactivitygathering) - Collection browser, timeline scrubber and `btl` expiry inspector.
 - [Agent swarms](https://github.com/Haven-hvn/haven-agent) - Swarm viewer, `VetKD` decrypt and replay console.
-- [Dedup & attestation](https://github.com/Haven-hvn/haven-provenance) - Dedup viewer, attested-publisher filter and `btl` reaper.
+- [Dedup & attestation](https://github.com/Haven-hvn/haven-provenance#dedup) - Dedup viewer, attested-publisher filter and `btl` reaper.
 
 ## Concepts
 Haven L7 is `alt.binaries for DataDAOs` — a private-tracker replacement that is token-gated, sealed and permanently pinned. Files are stored as CIDs: entity headers are ephemeral (`btl`/`EXPIRE`), bodies are durable (Filecoin `PDPVerifier`).
