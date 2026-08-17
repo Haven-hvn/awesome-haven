@@ -1,6 +1,6 @@
 # Awesome Haven [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
 
-> Curated directory for **Haven — L7 sovereign media protocol**. Files as CIDs: Arkiv OP L3 (`0x44…0044` ephemeral entities, `btl`/`regex` via `roaring64/ART`) + ICP VetKD (`haven-aol` `dciac-…qlzuq`, `gate_token/gate_chain/gate_threshold` per `cid/epoch`) + Filecoin Onchain Cloud (IPFS `CID` only in Arkiv). Many UIs around the same file pointer — no private backend (`Datastores:0`).
+> Curated directory for **Haven — L7 (application-layer) sovereign media protocol**. Like HTTP is L7 for the web and Usenet was L7 for binaries, Haven is L7 for files-as-CIDs over Arkiv L3 (`0x44…0044`, `btl`/`regex` via `roaring64/ART`) + ICP VetKD (`haven-aol` `dciac-…qlzuq`) + Filecoin (IPFS `CID` only in Arkiv). Same file `CID`, many UIs around it — no private backend (`Datastores:0`).
 
 ## Contents
 - [Protocol](#protocol)
@@ -72,7 +72,7 @@ Many file types, many diverse GUIs on the **same CID** per category — not yet 
 - [Agent swarms](https://github.com/Haven-hvn/haven-agent) - Swarm viewer, `VetKD` decrypt and replay console.
 
 ## Concepts
-Haven L7 is `alt.binaries for DataDAOs` — a private-tracker replacement that is token-gated, sealed and permanently pinned. Files are stored as CIDs: entity headers are ephemeral (`btl`/`EXPIRE`), bodies are durable (Filecoin `PDPVerifier`).
+Haven is L7 (application layer) — the user-facing media layer, like HTTP is L7 for the web and Usenet was L7 for binaries — composing Arkiv L3, ICP VetKD and Filecoin underneath. `alt.binaries for DataDAOs`: a private-tracker replacement that is token-gated, sealed and permanently pinned. Files are CIDs: entity headers are ephemeral (`btl`/`EXPIRE`), bodies are durable (Filecoin `PDPVerifier`), so any DataDAO can ship its own GUI around the same file.
 
 ## Planet Visualization
 Interactive orbit view of composable permissionless networks: [planet/index.html](planet/index.html) — Haven L7 at center, Arkiv L3, ICP VetKD, EVM, Filecoin as orbits, many UIs around one file CID. No private backend — only CIDs + eth_call + ecrecover.
