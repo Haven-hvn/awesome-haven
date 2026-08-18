@@ -12,4 +12,7 @@ Haven L7 is `headers + CID` only in Arkiv. Every interface below reads the same 
 ## Gate per DataDAO
 Each DataDAO zone (`gate_token/gate_chain/gate_threshold`) gets its own GUI but same wire: `arkiv_query(eq("gate_token",…)) → CID → IPFS cat → VetKD decrypt`.
 
-Add yours via PR to `../awesome.md`.
+## Incubator
+New clients start in [haven-clients-experimental](https://github.com/Haven-hvn/haven-clients-experimental) (`clients/<name>/`) — SLOP testbed where merged PRs count under `haven`. When a client proves useful it graduates to its own `Haven-hvn/<client>` repo/project.
+
+Add yours via PR to `../awesome.md` or directly to the incubator.

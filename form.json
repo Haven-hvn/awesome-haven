@@ -1,0 +1,134 @@
+{
+  "schemaVersion": "1",
+  "id": "haven",
+  "slug": "haven",
+  "name": "Haven",
+  "eyebrow": "Sovereign media",
+  "headline": "Alt.binaries for DataDAOs — build the sovereign media protocol.",
+  "description": "Haven is an L7 sovereign media protocol over Arkiv OP L3 (reth precompile 0x44…0044, ephemeral entities with btl/regex search) + ICP VetKD (haven-aol dciac-…qlzuq, token-gated VetKD per cid/epoch) + any EVM gate + Filecoin Onchain Cloud (IPFS CID only in Arkiv, three retrieval paths). Five decoupled surfaces, no private backend (Datastores:0). This project covers the 5-surface stack: arkiv entity shape (Ident32/Mime128), haven-aol (VetKD gating for DAOs/DataDAOs/agent swarms), haven-dapp/haven-cli/haven-mobile/foc-local-first-android — private-tracker replacement for token-gated communities.",
+  "status": "paused",
+  "steward": {
+    "displayName": "Human Activity Valuation and Exploration Network",
+    "kind": "organization",
+    "github": {
+      "actorId": "194730899",
+      "nodeId": "O_kgDOC5tbkw",
+      "login": "Haven-hvn",
+      "type": "Organization",
+      "profileUrl": "https://github.com/Haven-hvn"
+    },
+    "website": null
+  },
+  "authority": {
+    "state": "unverified",
+    "reason": "missing-repository-proof",
+    "role": "project-steward",
+    "repositoryId": "1333356527",
+    "repositoryNodeId": "R_kgDOT3ln7w",
+    "proof": null
+  },
+  "terms": {
+    "revision": "draft-1",
+    "effectiveAt": "2026-08-17T22:28:50.980Z",
+    "paymentTransfersIp": false,
+    "retroactive": false,
+    "receiptPolicy": { "state": "pending-authority-activation", "activatedAt": null, "bindings": [] },
+    "copyright": { "model": "unknown", "claimedLegalHolder": null, "notice": null, "legalCapacity": null, "governanceResolution": null },
+    "repositoryLicense": {
+      "state": "verified",
+      "spdx": "NOASSERTION",
+      "url": "https://github.com/Haven-hvn/docs/blob/main/LICENSE",
+      "commitSha": "0000000000000000000000000000000000000000",
+      "fileSha256": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "inbound": { "mode": "unknown", "termsUrl": null, "commitSha": null, "fileSha256": null, "version": null, "acceptance": null },
+    "assignment": null,
+    "externalPrize": null
+  },
+  "repositories": [
+    {
+      "id": "Haven-hvn/docs",
+      "displayName": "Haven-hvn/docs",
+      "githubUrl": "https://github.com/Haven-hvn/docs",
+      "description": "Living architecture docs for Haven — 5 decoupled surfaces, Arkiv L3 entity shape (0x44…0044), no shared DB. Source of truth for Web3 paradigm, ENTITY_SHAPE, MEDIA_CONTENT_SPEC.",
+      "integrationBranch": "main"
+    },
+    {
+      "id": "Haven-hvn/haven-aol",
+      "displayName": "Haven-hvn/haven-aol",
+      "githubUrl": "https://github.com/Haven-hvn/haven-aol",
+      "description": "Always Online (AOL), an ICP-native protocol for conditional, token-gated access using VetKD keys. AOL enables smart access patterns across web3—DAOs, DataDAOs, agent swarms, and shared resources.",
+      "integrationBranch": "main"
+    },
+    {
+      "id": "Haven-hvn/haven-dapp",
+      "displayName": "Haven-hvn/haven-dapp",
+      "githubUrl": "https://github.com/Haven-hvn/haven-dapp",
+      "description": "Haven dapp — TypeScript/Next.js 15 Web3 frontend for Arkiv entity discovery (arkiv_query) + VetKD decrypt + Filecoin playback.",
+      "integrationBranch": "main"
+    },
+    {
+      "id": "Haven-hvn/haven-cli",
+      "displayName": "Haven-hvn/haven-cli",
+      "githubUrl": "https://github.com/Haven-hvn/haven-cli",
+      "description": "Reclaiming the Internet for the User. — Haven CLI media pipeline (arkiv_sync.py), encryption, archival over Arkiv + VetKD + Filecoin.",
+      "integrationBranch": "main"
+    },
+    {
+      "id": "Haven-hvn/haven-mobile",
+      "displayName": "Haven-hvn/haven-mobile",
+      "githubUrl": "https://github.com/Haven-hvn/haven-mobile",
+      "description": "Haven mobile — Kotlin (Compose/Media3/Room) Android offline-first viewer with foc-cache, Filecoin multi-path retrieval.",
+      "integrationBranch": "main"
+    },
+    {
+      "id": "Haven-hvn/foc-local-first-android",
+      "displayName": "Haven-hvn/foc-local-first-android",
+      "githubUrl": "https://github.com/Haven-hvn/foc-local-first-android",
+      "description": "Kotlin/Android library for local-first retrieval of Filecoin Onchain Cloud content. Implements three retrieval paths (direct SP /piece, FilBeam CDN, IPFS) with multi-provider hedged race, disk cache with LRU eviction and TTL.",
+      "integrationBranch": "main"
+    },
+    {
+      "id": "Haven-hvn/haven-clients-experimental",
+      "displayName": "Haven-hvn/haven-clients-experimental",
+      "githubUrl": "https://github.com/Haven-hvn/haven-clients-experimental",
+      "description": "Incubator for experimental Haven clients — audio, images, docs, datasets, models, 3D, archives. SLOP testbed: merged PRs count under haven; graduates promote to standalone repos/projects.",
+      "integrationBranch": "main"
+    }
+  ],
+  "skill": {
+    "id": "contribute-to-haven",
+    "publishAtRoot": false,
+    "sourcePath": "skills/contribute-to-haven",
+    "publicPath": "/projects/haven/skill.md"
+  },
+  "reviewSkill": {
+    "id": "review-haven-contributions",
+    "sourcePath": "skills/review-haven-contributions"
+  },
+  "reward": {
+    "kind": "monthly-pool",
+    "currency": "USDC",
+    "chain": "solana",
+    "rewardStartAt": "2026-08-17T22:28:50.980Z",
+    "cycle": "calendar-month-utc",
+    "monthlyCapMinor": "0",
+    "monthlyCapDisplay": "$0",
+    "committedMinor": "0",
+    "paymentMode": "disabled",
+    "feeBasisPoints": 100,
+    "unusedFunds": "rollover-without-cap-increase",
+    "fundingState": "pledged"
+  },
+  "funding": {
+    "mode": "direct-noncustodial",
+    "disclosure": "Funds go directly to the project wallet. Slop does not hold or recover funds.",
+    "recordsPath": "funding/haven",
+    "addresses": []
+  },
+  "modelPolicy": { "mode": "open-declared", "disclosureRequired": true },
+  "links": {
+    "repository": "https://github.com/Haven-hvn/docs",
+    "issues": "https://github.com/Haven-hvn/docs/issues"
+  }
+}

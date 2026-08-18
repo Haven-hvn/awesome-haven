@@ -13,6 +13,9 @@ Directory of interfaces built around Haven L7 file CIDs. PRs welcome.
 - [haven-mobile](https://github.com/Haven-hvn/haven-mobile) — Kotlin Compose/Media3/Room, foc-cache
 - [foc-local-first-android](https://github.com/Haven-hvn/foc-local-first-android) — 3 paths (SP /piece, FilBeam CDN, IPFS) hedged race, LRU/TTL
 
+## Clients (experimental — incubator)
+- [haven-clients-experimental](https://github.com/Haven-hvn/haven-clients-experimental) — SLOP testbed for `audio/*`, `image/*`, `pdf/epub`, `csv/parquet`, `safetensors`, `gltf` etc. (`clients/<name>/` per client). Merged PRs count under `haven`; graduates promote to standalone `Haven-hvn/<client>` repos/projects
+
 ## Interfaces around Files
 - *Add your UI here* — gallery, player, CLI, agent swarm, bulletin, tracker replacement — all read `CID` via same `arkiv_query` + `gate_token`
 
