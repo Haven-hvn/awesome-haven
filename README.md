@@ -26,7 +26,7 @@ Reference thin clients obeying the same file-CID rule set:
 
 ### Experimental — Incubator
 
-- [haven-clients-experimental](https://github.com/Haven-hvn/haven-clients-experimental) - **SLOP testbed** for experimental clients (`audio/*`, `image/*`, `pdf/epub`, `csv/parquet`, `safetensors`, `gltf`, `zip` …). Each client lives in `clients/<name>/`. Merged PRs count under `haven` project; proven clients **graduate** to standalone `Haven-hvn/<client>` repos and optionally their own SLOP project.
+- [haven-clients-experimental](https://github.com/Haven-hvn/haven-clients-experimental#incubator) - **SLOP testbed** for experimental clients (`audio/*`, `image/*`, `pdf/epub`, `csv/parquet`, `safetensors`, `gltf`, `zip` …). Each client lives in `clients/<name>/`. Merged PRs count under `haven` project; proven clients **graduate** to standalone `Haven-hvn/<client>` repos and optionally their own SLOP project.
 
 ## Interfaces — Many UIs Around Files
 Same `ipfs_cid`/`piece_cid` via Filecoin, `haven-aol` VetKD if `is_encrypted=1`, discovered via `arkiv_query(eq("gate_token",…))`. Each file `CID` can be rendered by many diverse GUIs — **Built vs Proposed** below.
@@ -82,8 +82,6 @@ Haven is L7 (application layer) — the user-facing media layer, like HTTP is L7
 Interactive orbit view of composable permissionless networks: [planet/index.html](planet/index.html) — Haven L7 at center, Arkiv L3, ICP VetKD, EVM, Filecoin as orbits, many UIs around one file CID. No private backend — only CIDs + eth_call + ecrecover.
 
 ## Contributing
-PRs welcome! Each DataDAO may ship its own GUI around the same file protocol.
+PRs welcome! Each DataDAO may ship its own GUI around the same file protocol. For experimental clients, see [haven-clients-experimental](https://github.com/Haven-hvn/haven-clients-experimental#contributing) (`clients/<name>/` — SLOP testbed, merged PRs count under `haven`); for awesome-list curation, PR to this repo (`awesome.md` / `interfaces/`).
 
-- **Experimental clients** → PR to [haven-clients-experimental](https://github.com/Haven-hvn/haven-clients-experimental) (`clients/<name>/`) — SLOP testbed, merged PRs count under `haven`.
-- **Awesome list entries** → PR to this repo (`awesome.md` / `interfaces/`) — curation only.
-- See `awesome.md` and `interfaces/README.md`. Please follow [awesome guidelines](https://github.com/sindresorhus/awesome/blob/main/pull_request_template.md).
+See `awesome.md` and `interfaces/README.md`. Please follow [awesome guidelines](https://github.com/sindresorhus/awesome/blob/main/pull_request_template.md).
